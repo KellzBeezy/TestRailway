@@ -1,0 +1,44 @@
+import {
+  CREATE_MACHINE,
+  RETRIEVE_MACHINES,
+  DELETE_MACHINE,
+  DELETE_ALL_MACHINES,
+  UPDATE_MACHINE,
+} from "../actions/Machines/types";
+
+const initialState = [];
+
+function machineReducer(machines = initialState, action) {
+  const { type, payload } = action;
+
+  switch (type) {
+    case CREATE_MACHINE:
+      return [...machines, payload];
+
+    case RETRIEVE_MACHINES:
+      return payload;
+
+    case UPDATE_MACHINE:
+      return machines.map((machine) => {
+        if (machine.id === payload.id) {
+          return {
+            ...machine,
+            ...payload,
+          };
+        } else {
+          return machine;
+        }
+      });
+
+    case DELETE_MACHINE:
+      return machines.filter(({ id }) => id.toString() !== payload.id);
+
+    case DELETE_ALL_MACHINES:
+      return [];
+
+    default:
+      return machines;
+  }
+}
+
+export default machineReducer;

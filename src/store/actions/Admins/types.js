@@ -1,0 +1,5 @@
+export const RETRIEVE_ADMINS = 'RETRIEVE_ADMINS';
+export const DELETE_ADMIN = 'DELETE_ADMIN';
+export const CREATE_ADMIN = 'CREATE_ADMIN';
+export const DELETE_ALL_ADMINS = 'DELETE_ALL_ADMINS';
+export const UPDATE_ADMIN = 'UPDATE_ADMIN';
